@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int factorial(int n){
+  int val = 1;
+  for(int i=2;i<=n;i++){
+    val*=i;
+  }
+  return val;
+}
+int main()
+{
+  string s;cin>>s;
+  int sz = s.size();
+  int f = factorial(sz);
+  for(int i = 0; i < f ; i++){
+    int tem = i;
+    string jj = s;
+    for(int div = sz; div >= 1 ; div--){
+      int q = tem/div;
+      int r = tem%div;
+      cout<<jj[r];
+      jj.erase(jj.begin()+r);
+      tem = q;
+    }
+    cout<<"\n";
+  }
+  return 0;
+}
